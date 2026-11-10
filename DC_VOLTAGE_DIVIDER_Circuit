@@ -1,0 +1,191 @@
+# Experiment 02: DC Voltage Divider Circuit
+
+**Simulation Tool:** LTspice  
+**Circuit Type:** Series Resistive Circuit  
+**Analysis:** Transient Analysis
+
+## 1. Why I Explored This Circuit
+
+After understanding the relationship between voltage, current and resistance in a basic DC circuit, I wanted to explore how voltage is distributed across multiple resistors connected in series.
+
+The voltage divider circuit helped me understand how resistor values determine the output voltage of a circuit.
+
+## 2. The Engineering Question
+
+When two resistors are connected in series across a 10 V DC supply:
+
+- How is the input voltage divided between the resistors?
+- How does the resistance ratio affect the output voltage?
+- Can the voltage divider rule be verified using LTspice?
+
+## 3. My Circuit Design
+
+I designed a voltage divider circuit using two resistors connected in series across a 10 V DC supply.
+
+| Component | Value |
+|---|---:|
+| DC Voltage Source (V1) | 10 V |
+| Resistor R1 | 10 kΩ |
+| Resistor R2 | 20 kΩ |
+| Output Voltage | Across R2 |
+| Ground | 0 V reference |
+| Simulation Command | `.tran 1` |
+
+### Circuit Schematic
+
+![Voltage Divider Circuit] - provided in the same folder with .png
+
+## 4. Understanding the Mathematics
+
+### Voltage Divider Rule
+
+The voltage divider rule is used to calculate the voltage across each resistor in a series circuit.
+     
+4.1 Voltage Divider Rule (VDR)
+
+The voltage divider rule is used to calculate the voltage across individual resistors connected in series.
+
+General formulas:
+
+Voltage across R1:
+
+V_R1 = V_in × [R1 / (R1 + R2)]
+
+Voltage across R2:
+
+V_R2 = V_in × [R2 / (R1 + R2)]
+
+Where:
+
+V_in = Input supply voltage
+
+R1, R2 = Series resistances
+
+V_R1, V_R2 = Voltage drops across the resistors
+
+4.2 Given Values
+
+V_in = 10 V
+
+R1 = 10 kΩ
+
+R2 = 20 kΩ
+
+4.3 Calculation of Total Resistance
+
+For series-connected resistors:
+
+R_T = R1 + R2
+
+R_T = 10 kΩ + 20 kΩ
+
+R_T = 30 kΩ
+
+4.4 Calculation of Circuit Current
+
+Using Ohm's Law:
+
+I = V_in / R_T
+
+I = 10 / 30,000
+
+I = 0.000333 A
+
+I = 0.333 mA
+
+4.5 Calculation of Voltage Across R1
+
+V_R1 = V_in × [R1 / (R1 + R2)]
+
+V_R1 = 10 × [10 / (10 + 20)]
+
+V_R1 = 10 × (10 / 30)
+
+V_R1 = 3.33 V
+
+4.6 Calculation of Output Voltage Across R2
+
+V_out = V_R2 = V_in × [R2 / (R1 + R2)]
+
+V_out = 10 × [20 / (10 + 20)]
+
+V_out = 10 × (20 / 30)
+
+V_out = 6.67 V
+
+4.7 Verification Using Kirchhoff's Voltage Law (KVL)
+
+According to KVL, the sum of voltage drops in a closed loop equals the supply voltage.
+
+V_in = V_R1 + V_R2
+
+10 = 3.33 + 6.67
+
+10 V = 10 V
+|Parameter |	Theoretical Result|
+|Input Voltage |(Vin)	10 V|
+|R1	| 10 kΩ|
+|R2	| 20 kΩ|
+|Total Resistance (RT)	| 30 kΩ|
+|Circuit Current (I)	 | 0.333 mA|
+|Voltage across R1 (VR1)	|  3.33 V|
+|Output Voltage (Vout)	 | 6.67 V|
+
+This verifies that the sum of the voltage drops equals the input supply voltage.
+
+## 5. Simulation and Verification
+
+I implemented the voltage divider circuit in LTspice using a 10 V DC source and two series resistors.
+
+I used transient analysis with the command:
+
+`.tran 1`
+
+### Simulation Waveform – Current
+
+![Current Waveform] -  - provided in the same folder with .png
+
+### Simulation Waveform – Output Voltage
+
+![Output Voltage Waveform] - provided in the same folder with .png
+
+### Observations
+
+- The same current flows through both series resistors.
+- The larger resistor has a larger voltage drop.
+- The expected output voltage across R2 is approximately 6.67 V.
+- The DC voltage and current remain constant over time.
+
+
+
+## 6. What I Understood
+
+Through this experiment, I understood:
+
+- How voltage is divided across series-connected resistors.
+- How the resistance ratio determines output voltage.
+- How to apply the voltage divider rule.
+- Why the same current flows through series-connected resistors.
+- How to compare theoretical calculations with simulation results.
+
+## 8. What I Want to Explore Next
+
+After analysing passive resistive circuits, I want to explore semiconductor devices and understand their electrical behaviour.
+
+My next experiment will focus on the **PN Junction Diode – Forward Bias and Reverse Bias Characteristics**.
+
+## 9. Skills Practised
+
+- LTspice circuit design
+- Voltage divider analysis
+- Ohm's Law calculations
+- Series circuit analysis
+- Transient simulation
+- Waveform interpretation
+- Theoretical and simulated result comparison
+
+---
+
+**Learning Reflection**
+
+This experiment helped me understand how the choice of resistor values controls the output voltage. It also strengthened my ability to connect circuit theory with simulation-based analysis.
