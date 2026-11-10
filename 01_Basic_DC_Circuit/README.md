@@ -35,28 +35,28 @@ The circuit consists of:
 ## 4. Understanding the Mathematics
 
 I used Ohm’s Law to calculate the expected current.
+Understanding the Mathematics
 
-\[
-I=\frac{V}{R}
-\]
+To predict the circuit behaviour, I applied Ohm's Law.
 
-Substituting the values:
+V = I × R
 
-\[
-I=\frac{10}{1000}
-\]
+Rearranging:
 
-\[
-\boxed{I=0.01A=10mA}
-\]
+I = V / R
+
+Substituting the selected values:
+
+I = 10 / 1000
+
+Expected current = 10 mA
 
 The expected voltage across the resistor is 10 V.
 
 ## 5. Simulation and Verification
 
 I constructed the circuit in LTspice and ran transient analysis using:
-
-` .tran 1 `
+''transt ''
 
 The simulation waveform shows a constant current over the 1-second time interval.
 
