@@ -37,7 +37,6 @@ Each circuit is studied using:
 5. Comparison of theoretical and simulated results
 6. Documentation
 
-## 👩‍💻 Author
 
 -Thanziya C N 
 Electrical & Electronics Engineering
