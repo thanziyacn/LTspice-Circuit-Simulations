@@ -1,0 +1,231 @@
+# Experiment 03: Half-Wave Rectifier – AC to Pulsating DC Conversion
+
+**Simulation Environment:** LTspice  
+**Domain:** Analog Electronics | Semiconductor Devices  
+**Circuit Category:** Diode-Based Rectifier  
+**Simulation Method:** Transient Analysis
+
+---
+
+## 1. Engineering Context
+
+After exploring DC resistive circuits and voltage-divider networks, I wanted to move towards semiconductor-based circuit analysis.
+
+One fundamental application of a PN junction diode is rectification – converting an alternating input voltage into a unidirectional output.
+
+I explored the half-wave rectifier to understand how diode characteristics influence the conversion process and how the resulting waveform can be analysed through circuit simulation.
+
+## 2. The Engineering Problem
+
+An AC supply continuously changes its polarity. Many electronic circuits, however, require a unidirectional voltage.
+
+The engineering question I explored was:
+
+**How can a single semiconductor diode control the current flow in an AC circuit to produce a pulsating DC output?**
+
+This exploration focused on:
+
+- Diode conduction during forward bias.
+- Diode blocking behaviour during reverse bias.
+- Conversion of sinusoidal AC into pulsating DC.
+- The influence of diode forward voltage on output voltage.
+- Verification of theoretical behaviour through simulation.
+
+## 3. Circuit Architecture and Design
+
+The circuit consists of a sinusoidal AC voltage source, a PN junction diode and a load resistor connected in series.
+
+### Component Configuration
+
+| Component | Specification |
+|---|---|
+| Voltage Source | Sinusoidal AC |
+| Input Peak Voltage (Vm) | 10 V |
+| Input Frequency | 50 Hz |
+| Diode | 1N4148 |
+| Load Resistance (RL) | 1 kΩ |
+| Simulation Analysis | Transient |
+| Simulation Duration | 100 ms |
+
+### Circuit Schematic
+
+The circuit Schematic is provided in the same folder as .png .
+
+### Circuit Operation
+
+**Positive Half-Cycle:**
+
+During the positive half-cycle, the diode is forward biased and conducts current through the load resistor. A positive voltage appears across the load.
+
+**Negative Half-Cycle:**
+
+During the negative half-cycle, the diode becomes reverse biased and blocks current flow. Ideally, the output voltage across the load is zero.
+
+The resulting output consists of positive pulses separated by intervals of approximately zero voltage.
+
+## 4. Analytical Modelling and Calculations
+
+### 4.1 Input Signal Parameters
+
+The sinusoidal input is defined as:
+
+Vin(t) = Vm sin(2πft)
+
+Where:
+
+- Vm = Peak input voltage
+- f = Input frequency
+- t = Time
+
+Given:
+
+Vm = 10 V
+
+f = 50 Hz
+
+### 4.2 Time Period
+
+T = 1/f
+
+T = 1/50
+
+**T = 20 ms**
+
+Therefore, a 100 ms simulation displays approximately five complete input cycles.
+
+### 4.3 Peak Output Voltage
+
+For an ideal diode:
+
+Vout(peak) = Vm
+
+For a practical silicon diode, using an approximate forward voltage drop of 0.7 V:
+
+Vout(peak) ≈ Vm - Vf
+
+Vout(peak) ≈ 10 - 0.7
+
+**Vout(peak) ≈ 9.3 V**
+
+The actual value depends on the diode model and operating current.
+
+### 4.4 Average DC Output Voltage
+
+For an ideal half-wave rectifier:
+
+VDC = Vm/π
+
+VDC = 10/π
+
+**VDC ≈ 3.18 V**
+
+### 4.5 RMS Output Voltage
+
+For an ideal half-wave rectifier:
+
+VRMS = Vm/2
+
+VRMS = 10/2
+
+**VRMS = 5 V**
+
+*Note: The average and RMS calculations above use the ideal-diode assumption. Practical diode results will differ slightly.*
+
+## 5. Simulation Methodology
+
+The circuit was implemented in LTspice using a sinusoidal voltage source and a series-connected diode and load resistor.
+
+**Voltage source configuration:**
+
+SINE(0 10 50)
+
+**Transient analysis command:**
+
+.tran 100m
+
+The simulation was performed to examine the input signal, diode conduction behaviour and voltage developed across the load resistor.
+
+### 5.1 Input Signal Analysis
+
+<!-- Add actual input waveform screenshot here -->
+
+The input waveform represents a 50 Hz sinusoidal signal with a peak amplitude of 10 V.
+
+### 5.2 Output Signal Analysis
+
+<!-- Add actual output waveform screenshot here -->
+
+The output waveform should show the positive half-cycles across the load resistor, while the negative half-cycles are blocked by the diode.
+
+### 5.3 Simulation Evidence
+
+<!-- Add your complete LTspice simulation screenshot here -->
+
+## 6. Engineering Observations
+
+The simulation is used to investigate the following behaviours:
+
+1. The diode conducts when it is forward biased.
+2. The diode blocks current when it is reverse biased.
+3. The output contains only one polarity of the input waveform.
+4. The output is pulsating DC rather than a constant DC voltage.
+5. The output frequency of a half-wave rectifier remains equal to the input frequency.
+
+## 7. Theoretical Analysis vs Simulation
+
+| Parameter | Theoretical Reference | LTspice Result |
+|---|---:|---:|
+| Input Peak Voltage | 10 V | To be measured |
+| Input Frequency | 50 Hz | 50 Hz |
+| Time Period | 20 ms | 20 ms |
+| Peak Output Voltage | Approximately 9.3 V (practical estimate) | To be measured |
+| Average Output Voltage | 3.18 V (ideal) | To be measured |
+| RMS Output Voltage | 5 V (ideal) | To be measured |
+
+*Actual simulation measurements will be entered after waveform analysis.*
+
+## 8. Technical Understanding Gained
+
+This experiment helped me develop an understanding of:
+
+- PN junction diode conduction characteristics.
+- Forward-bias and reverse-bias operation.
+- AC-to-pulsating-DC conversion.
+- Time-domain analysis of semiconductor circuits.
+- The difference between ideal and practical diode behaviour.
+- Verification of circuit theory using LTspice.
+
+## 9. Further Engineering Exploration
+
+This experiment provides a foundation for investigating more advanced rectifier configurations.
+
+My next exploration will focus on:
+
+- Full-wave rectifier circuits.
+- Bridge rectifier configuration.
+- Ripple factor and rectification efficiency.
+- Comparison of half-wave and full-wave rectifiers.
+- Filtering and smoothing of rectified output.
+
+## 10. Tools and Technical Skills
+
+**Software:** LTspice
+
+**Technical Areas:**
+- Analog circuit simulation
+- Semiconductor diode analysis
+- AC waveform analysis
+- Transient simulation
+- Circuit modelling
+- Mathematical verification
+- Engineering documentation
+
+---
+
+### Engineering Reflection
+
+Moving from resistive networks to semiconductor circuits has helped me understand how individual electronic components influence the overall behaviour of a circuit.
+
+Rather than only calculating expected values, I am learning to construct schematics, configure simulation parameters, investigate unexpected results and compare theoretical predictions with simulated behaviour.
+
+This is part of my ongoing effort to strengthen my fundamentals in Analog Electronics through practical simulation and engineering analysis.
